@@ -1,4 +1,4 @@
-FROM debian:testing as base
+FROM debian:latest as base
 
 
 RUN apt-get update \
