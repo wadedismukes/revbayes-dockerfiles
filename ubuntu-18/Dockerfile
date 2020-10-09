@@ -27,12 +27,12 @@ RUN apt-get update \
 FROM base as src
 COPY ./revbayes .
 
-ENV PATH=$PATH:/revbayes
+ENV PATH=$PATH:./revbayes
 
-RUN cd /revbayes/projects/cmake \
+RUN cd ./revbayes/projects/cmake \
         && rm -rf build/ \
         && ./build.sh \
-        && mv rb /revbayes/rb
+        && mv rb ./revbayes/rb
 FROM src as prod
 
-ENTRYPOINT ["/revbayes/rb"]
+ENTRYPOINT ["./revbayes/rb"]

@@ -13,13 +13,12 @@ RUN dnf groupinstall -y cmake \
 FROM base as src
 COPY ./revbayes .
 
-ENV PATH=$PATH:/revbayes
+ENV PATH=$PATH:./revbayes
 
-RUN cd /revbayes/projects/cmake \
+RUN cd ./revbayes/projects/cmake \
         && rm -rf build/ \
         && ./build.sh \
-        && mv rb /revbayes/rb
+        && mv rb ./revbayes/rb
 FROM src as prod
-COPY --from=src /revbayes/projects/cmake/build/libs/liblibs.a /revbayes/
 
-ENTRYPOINT ["/revbayes/rb"]
+ENTRYPOINT ["./revbayes/rb"]
