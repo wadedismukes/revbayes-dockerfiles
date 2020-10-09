@@ -1,9 +1,5 @@
 FROM debian:testing as base
 
-RUN apt-get update \
-    && apt-get install -y --no-install-recommends \
-                    software-properties-common \
-    && apt-add-repository multiverse
 
 RUN apt-get update \
         build-essential \
