@@ -1,7 +1,6 @@
 FROM debian:testing as base
 
 RUN apt-get update \
-                    software-properties-common \
     && apt-add-repository multiverse
 
 

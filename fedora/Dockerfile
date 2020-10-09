@@ -2,7 +2,7 @@ FROM fedora:latest as base
 
 RUN dnf update \
     && dnf groupinstall -y "Development Tools"
-RUN dnf install -y cmake \
+RUN dnf groupinstall -y cmake \
         boost-devel \         
         bash-completion \
         tar \
