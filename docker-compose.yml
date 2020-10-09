@@ -1,14 +1,26 @@
 version: "3.8"
 services:
   rb-centos8:
-    build: ./centos8
+    build: 
+      context: ./centos8
+      target: prod
   rb-ubuntu16:
-    build: ./ubuntu-16
+    build: 
+      context: ./ubuntu-16
+      target: prod
   rb-ubuntu18:
-    build: ./ubuntu-18
+    build: 
+      context: ./ubuntu-18
+      target: prod
   rb-ubuntu20:
-    build: ./ubuntu-latest
+    build: 
+      context: ./ubuntu-latest
+      target: prod
   rb-debian:
-    build: ./debian
+    build: 
+      context: ./debian
+      target: prod
   rb-fedora:
-    build: ./fedora
+    build: 
+      context: ./fedora
+      target: prod
