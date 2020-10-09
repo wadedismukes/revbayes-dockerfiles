@@ -1,0 +1,20 @@
+name: Publish RevBayes Docker images
+
+on:
+    push:
+      branches: master
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v2
+      - name: install buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-build@v1
+        with:
+          version: latest
+      - name: build the image
+      run: |
+        docker buildx bake 

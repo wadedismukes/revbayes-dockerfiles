@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  rb-centos8:
+    build: ./centos8
+  rb-ubuntu16:
+    build: ./ubuntu-16
+  rb-ubuntu18:
+    build: ./ubuntu-18
+  rb-ubuntu20:
+    build: ./ubuntu-latest
+  rb-debian:
+    build: ./debian
+  rb-fedora:
+    build: ./fedora
