@@ -5,28 +5,40 @@ services:
       context: ./centos8
       dockerfile: Dockerfile
       target: prod
+    ports:
+      - "4000"
   rb-ubuntu16:
     build: 
       context: ./ubuntu-16
       dockerfile: Dockerfile
       target: prod
+    ports:
+      - "4001"
   rb-ubuntu18:
     build: 
       context: ./ubuntu-18
       dockerfile: Dockerfile
       target: prod
+    ports:
+      - "4002"
   rb-ubuntu20:
     build: 
       context: ./ubuntu-latest
       dockerfile: Dockerfile
       target: prod
+    ports:
+      - "4003"
   rb-debian:
     build: 
       context: ./debian
       dockerfile: Dockerfile
       target: prod
+    ports:
+      - "4004"
   rb-fedora:
     build: 
       context: ./fedora
       dockerfile: Dockerfile
       target: prod
+    ports:
+      - "4005"    
