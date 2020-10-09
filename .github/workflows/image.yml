@@ -16,5 +16,5 @@ jobs:
         with:
           version: latest
       - name: build the image
-      run: |
-        docker buildx bake 
+        run: |
+          docker buildx bake 
