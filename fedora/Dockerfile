@@ -11,7 +11,7 @@ RUN dnf groupinstall -y cmake \
         git
 
 FROM base as src
-RUN git clone --depth 1 https://github.com/revbayes/revbayes.git revbayes
+COPY /revbayes .
 
 ENV PATH=$PATH:/revbayes
 
@@ -20,4 +20,6 @@ RUN cd /revbayes/projects/cmake \
         && ./build.sh \
         && mv rb /revbayes/rb
 FROM src as prod
+COPY --from=src /revbayes/projects/cmake/build/libs/liblibs.a /revbayes/
+
 ENTRYPOINT ["/revbayes/rb"]

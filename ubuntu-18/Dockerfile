@@ -25,7 +25,7 @@ RUN apt-get update \
         libboost-thread-dev
 
 FROM base as src
-RUN git clone --depth 1 https://github.com/revbayes/revbayes.git revbayes
+COPY /revbayes .
 
 ENV PATH=$PATH:/revbayes
 
