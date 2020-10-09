@@ -15,7 +15,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
       - name: clone revbayes 
         run: |
-          git clone https://github.com/revbayes/revbayes.git /revbayes 
+          git clone https://github.com/revbayes/revbayes.git
       - name: build the image
         run: |
           docker buildx bake -f docker-compose.yml --progress plain
