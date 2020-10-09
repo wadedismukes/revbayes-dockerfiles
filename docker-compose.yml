@@ -3,24 +3,30 @@ services:
   rb-centos8:
     build: 
       context: ./centos8
+      dockerfile: Dockerfile
       target: prod
   rb-ubuntu16:
     build: 
       context: ./ubuntu-16
+      dockerfile: Dockerfile
       target: prod
   rb-ubuntu18:
     build: 
       context: ./ubuntu-18
+      dockerfile: Dockerfile
       target: prod
   rb-ubuntu20:
     build: 
       context: ./ubuntu-latest
+      dockerfile: Dockerfile
       target: prod
   rb-debian:
     build: 
       context: ./debian
+      dockerfile: Dockerfile
       target: prod
   rb-fedora:
     build: 
       context: ./fedora
+      dockerfile: Dockerfile
       target: prod
