@@ -31,7 +31,7 @@ ENV BOOST_INCLUDE_DIR=/boost_1_71_0
 ENV BOOST_LIBRARY_DIR=/boost_1_71_0/stage/lib
 
 FROM base as src
-RUN git clone --depth 1 --branch development https://github.com/revbayes/revbayes.git revbayes
+RUN git clone --depth 1 https://github.com/revbayes/revbayes.git revbayes
 
 RUN cd /revbayes/projects/cmake \
         && rm -rf build/ \
