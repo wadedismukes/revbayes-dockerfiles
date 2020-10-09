@@ -22,4 +22,4 @@ jobs:
           path: revbayes
       - name: build the image
         run: |
-          docker buildx bake -f docker-compose.yml --progress plain
+          docker buildx bake -f main/docker-compose.yml --progress plain
