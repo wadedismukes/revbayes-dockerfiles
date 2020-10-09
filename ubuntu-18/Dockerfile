@@ -1,4 +1,4 @@
-FROM ubuntu:18.04 as base
+FROM ubuntu:bionic as base
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \

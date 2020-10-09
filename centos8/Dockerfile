@@ -1,4 +1,4 @@
-FROM centos:centos8 as base
+FROM centos:8 as base
 
 RUN yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm
 RUN yum update -y
