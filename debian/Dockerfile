@@ -21,13 +21,13 @@ RUN apt-get update \
 
 FROM base as src
 RUN git clone --depth 1 https://github.com/revbayes/revbayes.git revbayes
+ENV PATH=$PATH:/revbayes
+
 RUN cd /revbayes/projects/cmake \
-        && ./build.sh 
+        && rm -rf build/ \
+        && ./build.sh \
+        && mv rb /revbayes/rb
 
 FROM src as prod
-COPY --from=build /revbayes/projects/cmake/rb /revbayes/
-COPY --from=build /revbayes/projects/cmake/build/core/librb-core.a /revbayes/
-COPY --from=build /revbayes/projects/cmake/build/revlanguage/librb-parser.a /revbayes/
-COPY --from=build /revbayes/projects/cmake/build/libs/liblibs.a /revbayes/
 
 ENTRYPOINT ["/revbayes/rb"]
