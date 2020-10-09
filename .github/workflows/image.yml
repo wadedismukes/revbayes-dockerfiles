@@ -2,7 +2,9 @@ name: Publish RevBayes Docker images
 
 on:
   push:
-    branches: master
+    branches:
+      - "*"
+
 jobs:
   build:
     runs-on: ubuntu-latest
