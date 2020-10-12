@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v2 
         with: 
           repository: revbayes/revbayes
-          path: GITHUB_WORKSPACE/revbayes
+          path: main
       - name: build the image
         run: |
           docker buildx bake -f main/docker-compose.yml --progress plain

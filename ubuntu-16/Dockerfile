@@ -31,10 +31,10 @@ ENV BOOST_INCLUDE_DIR=/boost_1_71_0
 ENV BOOST_LIBRARY_DIR=/boost_1_71_0/stage/lib
 
 FROM base as src
-COPY ./revbayes .
+COPY ../revbayes .
 ENV PATH=$PATH:./revbayes
 
-RUN cd ../revbayes/projects/cmake \
+RUN cd ./revbayes/projects/cmake \
         && rm -rf build/ \
         && ./build.sh \
         && mv rb ./revbayes/rb
