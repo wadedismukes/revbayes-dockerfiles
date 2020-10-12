@@ -25,7 +25,7 @@ RUN apt-get update \
         libboost-thread-dev
 
 FROM base as src
-COPY ../../revbayes .
+COPY ./revbayes .
 
 ENV PATH=$PATH:./revbayes
 
