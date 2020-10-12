@@ -20,7 +20,7 @@ RUN apt-get update \
         libboost-thread-dev
 
 FROM base as src
-COPY ./revbayes ./revbayes
+COPY /home/runner/work/revbayes-dockerfiles/revbayes-dockerfiles/revbayes ./revbayes
 ENV PATH=$PATH:./revbayes
 
 RUN cd ./revbayes/projects/cmake \

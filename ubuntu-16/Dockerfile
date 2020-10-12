@@ -24,14 +24,15 @@ RUN curl -O -L https://dl.bintray.com/boostorg/release/1.71.0/source/boost_1_71_
 RUN tar -xzf boost_1_71_0.tar.gz
 RUN cd boost_1_71_0 \
     && ./bootstrap.sh --with-libraries=atomic,chrono,filesystem,system,regex,thread,date_time,program_options,math,serialization \
-    && ./b2 link=static 
+    && ./b2 link=static \
+    && cd ..
 
 ENV BOOST_ROOT=/boost_1_71_0
 ENV BOOST_INCLUDE_DIR=/boost_1_71_0
 ENV BOOST_LIBRARY_DIR=/boost_1_71_0/stage/lib
 
 FROM base as src
-COPY ./revbayes ./revbayes
+COPY /home/runner/work/revbayes-dockerfiles/revbayes-dockerfiles/revbayes ./revbayes
 ENV PATH=$PATH:./revbayes
 
 RUN cd ./revbayes/projects/cmake \
