@@ -24,7 +24,7 @@ RUN apt-get update \
         libboost-system-dev \
         libboost-thread-dev
 FROM base as src
-COPY ${GITHUB_WORKSPACE}/revbayes ./revbayes
+COPY "${GITHUB_WORKSPACE}/revbayes" ./revbayes
 ENV PATH=$PATH:./revbayes
 
 RUN cd ./revbayes/projects/cmake \
