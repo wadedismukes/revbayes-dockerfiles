@@ -2,42 +2,42 @@ version: "3.8"
 services:
   rb-centos8:
     build: 
-      context: centos8
+      context: main/centos8
       dockerfile: Dockerfile
       target: prod
     ports:
       - "4000"
   rb-ubuntu16:
     build: 
-      context: ubuntu-16
+      context: main/ubuntu-16
       dockerfile: Dockerfile
       target: prod
     ports:
       - "4001"
   rb-ubuntu18:
     build: 
-      context: ubuntu-18
+      context: main/ubuntu-18
       dockerfile: Dockerfile
       target: prod
     ports:
       - "4002"
   rb-ubuntu20:
     build: 
-      context: ubuntu-latest
+      context: main/ubuntu-latest
       dockerfile: Dockerfile
       target: prod
     ports:
       - "4003"
   rb-debian:
     build: 
-      context: debian
+      context: main/debian
       dockerfile: Dockerfile
       target: prod
     ports:
       - "4004"
   rb-fedora:
     build: 
-      context: fedora
+      context: main/fedora
       dockerfile: Dockerfile
       target: prod
     ports:
