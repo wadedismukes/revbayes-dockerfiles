@@ -11,7 +11,7 @@ RUN yum install -y less
 RUN yum install -y git
 
 FROM base as src
-COPY GITHUB_WORKSPACE/revbayes ./revbayes
+COPY ${GITHUB_WORKSPACE}/revbayes ./revbayes
 ENV PATH=$PATH:./revbayes
 
 RUN cd ./revbayes/projects/cmake \
