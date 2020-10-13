@@ -32,7 +32,7 @@ ENV BOOST_INCLUDE_DIR=/boost_1_71_0
 ENV BOOST_LIBRARY_DIR=/boost_1_71_0/stage/lib
 
 FROM base as src
-COPY ./revbayes-dockerfiles/revbayes ./revbayes
+COPY GITHUB_WORKSPACE/revbayes ./revbayes
 ENV PATH=$PATH:./revbayes
 
 RUN cd ./revbayes/projects/cmake \
