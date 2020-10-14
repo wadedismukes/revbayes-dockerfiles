@@ -25,7 +25,7 @@ RUN apt-get update \
         libboost-thread-dev
 
 FROM base as src
-COPY ./revbayes/revbayes ./revbayes
+COPY revbayes/revbayes ./revbayes
 ENV PATH=$PATH:./revbayes
 
 RUN cd ./revbayes/projects/cmake \
