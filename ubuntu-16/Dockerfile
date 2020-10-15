@@ -34,11 +34,13 @@ ENV BOOST_LIBRARY_DIR=/boost_1_71_0/stage/lib
 FROM base as src
 RUN git clone --depth=1 https://github.com/revbayes/revbayes.git /revbayes
 
-ENV PATH=$PATH:./revbayes
+ENV PATH=$PATH:/revbayes
 
-RUN cd ./revbayes/projects/cmake \
+RUN cd /revbayes/projects/cmake \
         && rm -rf build/ \
         && ./build.sh \
-        && mv rb ./revbayes/rb
+        && mv rb /revbayes/rb
+
 FROM src as prod
-CMD ["./revbayes/rb"]
+
+ENTRYPOINT ["/revbayes/rb"]
