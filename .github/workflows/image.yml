@@ -20,53 +20,6 @@ jobs:
           password: ${{ secrets.CR_PAT }}
       - name: checkout code
         uses: actions/checkout@v2
-      - name: Buld and push centos
-        id: docker_build_centos
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./centos8/Dockerfile
-          push: true
-          tags: wadedismukes/revbayes-centos:8
-      - name: Buld and push debian
-        id: docker_build_debian
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./debian/Dockerfile
-          push: true
-          tags: wadedismukes/revbayes-debian:latest
-      - name: Buld and push fedora 
-        id: docker_build_fedora
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./fedora/Dockerfile
-          push: true
-          tags: wadedismukes/revbayes-fedora:8
-      - name: Buld and push ubuntu 16
-        id: docker_build_ubuntu16
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./ubuntu-16/Dockerfile
-          push: true
-          tags: wadedismukes/revbayes-ubuntu:16
-      - name: Buld and push ubuntu 18
-        id: docker_build_ubuntu18
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./ubuntu-18/Dockerfile
-          push: true
-          tags: wadedismukes/revbayes-ubuntu:18
-      - name: Buld and push latest
-        id: docker_build_ubuntulatest
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          file: ./ubuntu-latest/Dockerfile
-          push: true
-          tags: wadedismukes/revbayes-ubuntu:latest      
-        
-          
+      - name: Build and Publish
+        run: |
+          docker buildx bake -f docker-compose.yml --progress plain
